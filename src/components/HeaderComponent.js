@@ -1,15 +1,14 @@
 import React, {Component} from "react";
-import { Navbar, NavbarBrand, Nav, NavbarToggler, NavItem, Collapse } from "reactstrap";
+import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem } from "reactstrap";
 import { NavLink } from "react-router-dom";
 
 class Header extends Component {
     constructor(props) {
         super(props);
-    
-        this.toggleNav = this.toggleNav.bind(this);
         this.state = {
-            isNavOpen: false
+            isNavOpen: false,
         };
+        this.toggleNav = this.toggleNav.bind(this);
     }
 
     toggleNav() {
@@ -30,13 +29,13 @@ class Header extends Component {
                         <Collapse isOpen={this.state.isNavOpen} navbar></Collapse>
                         <Nav navbar>
                             <NavItem>
-                                <NavLink className="nav-link" to="/nhanvien"><span className="fa fa-users fa-lg"></span> Nhân viên</NavLink>
+                                <NavLink className="nav-link" to="/staff"><span className="fa fa-users fa-lg"></span> Nhân viên</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="nav-link" to="/phongban"><span className="fa fa-address-card"></span> Phòng ban</NavLink>
+                                <NavLink className="nav-link" to="/department"><span className="fa fa-address-card"></span> Phòng ban</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="nav-link" to="/bangluong"><span className="fa fa-money"></span> Bảng lương</NavLink>
+                                <NavLink className="nav-link" to="/salary"><span className="fa fa-money"></span> Bảng lương</NavLink>
                             </NavItem>
                         </Nav>
                     </div>
