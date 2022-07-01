@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { Component } from "react";
-import { Card, CardImg, CardBody, CardSubtitle, Modal, Col, Row, Label, ModalHeader, ModalBody, Input, FormFeedback, Button } from "reactstrap";
+import { Card, CardImg, CardBody, CardSubtitle, Modal, Col, Row, Label,ModalBody, ModalHeader, Input, FormFeedback, Button } from "reactstrap";
 import { Link } from "react-router-dom"; 
 import { Control, LocalForm, Errors } from "react-redux-form";
 
@@ -344,4 +344,3 @@ class StaffList extends Component {
 }
 
 export default StaffList;
-
