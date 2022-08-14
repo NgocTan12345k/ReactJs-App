@@ -1,2 +1,0 @@
-Repository: https://github.com/NgocTan12345k/ReactJs-App.git
-Branch: RJS101x_Assignment2_tanbnfx15317@funix.edu.vn

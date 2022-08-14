@@ -1,48 +1,57 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Card, CardTitle, CardBody, CardText, Breadcrumb, BreadcrumbItem } from "reactstrap";
+import {
+  Card,
+  CardTitle,
+  CardBody,
+  CardText,
+  Breadcrumb,
+  BreadcrumbItem,
+} from "reactstrap";
 
 const luongCB = 3000000;
 const luongGio = 200000;
 
-function RenderSalary({ salary, colorSalary }) {
-    return (
-        <Card>
-            <CardTitle className="p-3 bg-white rounded m-2">{salary.name}</CardTitle>
-            <CardBody>
-                <CardText>Mã nhân viên: {salary.id} </CardText>
-                <CardText>Hệ số lương: {salary.salaryScale} </CardText>
-                <CardText>Số giờ làm thêm: {salary.overTime} </CardText>
-                <CardText className="bg-light p-2 shadow">
-                    Lương: {" "}
-                    {(salary.salaryScale * luongCB + salary.overTime * luongGio).toFixed(0)}
-                </CardText>
-            </CardBody>
-        </Card>
-    );
+function RenderSalary({ salary }) {
+  return (
+    <Card>
+      <CardTitle className="p-3 bg-white rounded m-2">{salary.name}</CardTitle>
+      <CardBody>
+        <CardText>Mã nhân viên: {salary.id} </CardText>
+        <CardText>Hệ số lương: {salary.salaryScale} </CardText>
+        <CardText>Số giờ làm thêm: {salary.overTime} </CardText>
+        <CardText className="bg-light p-2 shadow">
+          Lương:{" "}
+          {(salary.salaryScale * luongCB + salary.overTime * luongGio).toFixed(
+            0
+          )}
+        </CardText>
+      </CardBody>
+    </Card>
+  );
 }
 
 const Salary = (props) => {
-    const salary = props.luong.map((ss) => {
-            return (
-                <div className="col-12 col-md-6 col-lg-4 mt-2 mb-2" key={ss.id}>
-                    <RenderSalary salary={ss} />
-                </div>
-            );
-        });
+  const salary = props.salary.map((ss) => {
     return (
-        <div className="container">
-            <div className="row">
-                <Breadcrumb>
-                    <BreadcrumbItem>
-                        <Link to="/staff">Nhân viên</Link>
-                    </BreadcrumbItem>
-                    <BreadcrumbItem active>Bảng lương</BreadcrumbItem>
-                </Breadcrumb>
-            </div>
-            <div className="row shadow mb-3">{salary}</div>
-        </div>
+      <div className="col-12 col-md-6 col-lg-4 mt-2 mb-2" key={ss.id}>
+        <RenderSalary salary={ss} />
+      </div>
     );
+  });
+  return (
+    <div className="container">
+      <div className="row">
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <Link to="/staff">Nhân viên</Link>
+          </BreadcrumbItem>
+          <BreadcrumbItem active>Bảng lương</BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+      <div className="row shadow mb-3">{salary}</div>
+    </div>
+  );
 };
 
 export default Salary;
